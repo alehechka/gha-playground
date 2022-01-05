@@ -1,0 +1,21 @@
+name: Playground
+
+on:
+  - push
+  - pull_request
+  - delete
+
+jobs:
+  playground:
+    runs-on: ubuntu-latest
+    name: Playground
+    steps:
+      - name: Print GitHub Context
+        run: echo $GITHUB_CONTEXT
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+
+      - name: Print GitHub Event Context
+        run: echo $GITHUB__EVENT_CONTEXT
+        env:
+          GITHUB__EVENT_CONTEXT: ${{ toJSON(github.event) }}
