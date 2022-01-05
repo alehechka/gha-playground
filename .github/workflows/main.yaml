@@ -13,7 +13,15 @@ jobs:
     steps:
       - name: Print Event Name
         run: echo "${{ github.event_name }}"
-        
+
+      - name: Print Variables
+        run: |
+          echo "github.ref = ${{ github.ref }}"
+          echo "github.head_ref = ${{ github.head_ref }}"
+          echo "github.base_ref = ${{ github.base_ref }}"
+          echo "github.event.ref = ${{ github.event.ref }}"
+          echo "github.event.head.ref = ${{ github.event.head.ref }}"
+ 
       - name: Print GitHub Context
         run: echo "$GITHUB_CONTEXT"
         env:
