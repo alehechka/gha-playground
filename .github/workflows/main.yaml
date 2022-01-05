@@ -16,6 +16,7 @@ jobs:
 
       - name: Print Variables
         run: |
+          echo "github.ref_name = ${{ github.ref_name }}"
           echo "github.ref = ${{ github.ref }}"
           echo "github.head_ref = ${{ github.head_ref }}"
           echo "github.base_ref = ${{ github.base_ref }}"
