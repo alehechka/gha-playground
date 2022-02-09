@@ -1,45 +1,15 @@
-name: Playground Testing
+name: Playground
 
 on:
   - push
+  - pull_request
+  - create
+  - delete
 
 jobs:
   playground:
     runs-on: ubuntu-latest
-    name: Playground Original
-    steps:
-      - name: Print Event Name
-        run: echo "${{ github.event_name }}"
-
-      - name: Print Variables
-        run: |
-          echo "github.ref_name = ${{ github.ref_name }}"
-          echo "github.ref = ${{ github.ref }}"
-          echo "github.head_ref = ${{ github.head_ref }}"
-          echo "github.base_ref = ${{ github.base_ref }}"
-          echo "github.event.ref = ${{ github.event.ref }}"
-          echo "github.event.head.ref = ${{ github.event.head.ref }}"
-
-      - name: Print GitHub Context
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-
-      - name: Print GitHub Event Context
-        run: echo "$GITHUB__EVENT_CONTEXT"
-        env:
-          GITHUB__EVENT_CONTEXT: ${{ toJSON(github.event) }}
-
----
-name: Playground Duo Jobs
-
-on:
-  - push
-
-jobs:
-  playground:
-    runs-on: ubuntu-latest
-    name: Playground Duplicate
+    name: Playground
     steps:
       - name: Print Event Name
         run: echo "${{ github.event_name }}"
