@@ -1,0 +1,14 @@
+name: Playground
+description: 'GHA Playground'
+
+inputs:
+  flag:
+    description: 'Boolean Flag'
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Print Flag
+      run: echo "${{ inputs.flag }}"
+      shell: bash

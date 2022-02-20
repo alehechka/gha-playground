@@ -32,3 +32,8 @@ jobs:
         run: echo "$GITHUB__EVENT_CONTEXT"
         env:
           GITHUB__EVENT_CONTEXT: ${{ toJSON(github.event) }}
+
+      - name: Test Conditional inputs
+        uses: alehechka/gha-playground@main
+        with:
+          flag: ${{ github.ref_type == 'branch' }}
