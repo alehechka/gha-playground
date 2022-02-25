@@ -1,10 +1,9 @@
 name: Playground
 
 on:
-  - push
-  - pull_request
-  - create
-  - delete
+  push:
+    branches:
+      - main
 
 jobs:
   playground:

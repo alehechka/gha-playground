@@ -1,0 +1,14 @@
+name: Pull Request Test
+
+on:
+  - pull_request
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    name: Pull Request
+    steps:
+      - name: Check TODOs
+        uses: dmsi-io/gha-code-review@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
