@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Pull Request
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Check TODOs
         uses: dmsi-io/gha-code-review@main
         with:
