@@ -9,3 +9,12 @@ console.log('test'); // TODO: JIRA-123 do the second thing
 // TODO: do not do the sixth thing
 
 // TODO: [JIRA-123] do the seventh thing
+
+/** TODO: [JIRA-123] do the eighth thing */
+
+/** TODO:
+ * JIRA-123
+ * Do thing ninth thing
+ */
+
+/* TODO: [JIRA-123] do the tenth thing */
