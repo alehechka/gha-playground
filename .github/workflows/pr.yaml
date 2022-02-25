@@ -14,4 +14,4 @@ jobs:
       - name: Check TODOs
         uses: dmsi-io/gha-code-review@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GHA_ACCESS_TOKEN }}
