@@ -7,3 +7,5 @@ console.log('test'); // TODO: JIRA-123 do the second thing
 // TODO: DEF-456 - do not do the fifth thing
 
 // TODO: do not do the sixth thing
+
+// TODO: [JIRA-123] do the seventh thing
