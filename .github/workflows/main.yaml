@@ -38,10 +38,10 @@ jobs:
         with:
           flag: ${{ github.ref_type == 'branch' }}
 
-      - name: Testing Brew
+      - name: Testing GoFish
         run: |
-          brew install mike-engel/jwt-cli/jwt-cli
-          brew list
+          gofish --version
+          gofish install jwt-cli
 
       - name: Test jwt-cli
         run: jwt help
