@@ -2,9 +2,9 @@ name: Playground
 
 on:
   - push
-  - pull_request
-  - create
-  - delete
+  # - pull_request
+  # - create
+  # - delete
 
 jobs:
   playground:
@@ -37,3 +37,9 @@ jobs:
         uses: alehechka/gha-playground@main
         with:
           flag: ${{ github.ref_type == 'branch' }}
+
+      - name: Testing Brew
+        run: brew list
+
+      - name: Test jwt-cli
+        run: jwt help
