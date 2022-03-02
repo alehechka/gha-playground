@@ -39,7 +39,9 @@ jobs:
           flag: ${{ github.ref_type == 'branch' }}
 
       - name: Testing Brew
-        run: brew list
+        run: |
+          brew install mike-engel/jwt-cli/jwt-cli
+          brew list
 
       - name: Test jwt-cli
         run: jwt help
