@@ -12,6 +12,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check TODOs
-        uses: dmsi-io/gha-code-review@main
+        uses: dmsi-io/gha-code-review@fix/inverted-check
         with:
           token: ${{ secrets.GHA_ACCESS_TOKEN }}
