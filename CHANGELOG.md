@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- [JIRA-321]: Testing PR changelog
+
 ### Changed
 
 ### Removed
