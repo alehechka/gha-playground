@@ -7,7 +7,7 @@ on:
   # - delete
   workflow_dispatch:
   schedule:
-    - cron: 40 15 * * *
+    - cron: 45 20 * * *
 
 jobs:
   playground:
