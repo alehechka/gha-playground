@@ -1,10 +1,13 @@
 name: Playground
 
 on:
-  - push
-  - pull_request
-  - create
-  - delete
+  push:
+  # - pull_request
+  # - create
+  # - delete
+  workflow_dispatch:
+  schedule:
+    - cron: 40 3 * * *
 
 jobs:
   playground:
