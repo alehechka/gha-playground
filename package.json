@@ -1,0 +1,11 @@
+{
+  "name": "gha-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:alehechka/gha-playground.git",
+  "author": "alehechka <ajlehechka@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  }
+}

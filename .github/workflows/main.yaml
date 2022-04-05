@@ -43,3 +43,8 @@ jobs:
 
       - name: Env
         run: env | sort
+
+      - name: Test JS env
+        run: yarn start
+        env:
+          VARIABLE: 'hello, world'
