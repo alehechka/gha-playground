@@ -44,6 +44,10 @@ jobs:
       - name: Env
         run: env | sort
 
+      - name: Check created condition
+        if: github.event.created == true
+        run: echo "Created"
+
       - name: Checkout
         uses: actions/checkout@v3
 
