@@ -2,6 +2,8 @@ name: Playground
 
 on:
   push:
+    branches:
+      - main
   # - pull_request
   # - create
   # - delete

@@ -1,0 +1,14 @@
+name: Playground
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  playground:
+    runs-on: ubuntu-latest
+    name: Playground Release Tag
+    steps:
+      - name: Print Tag
+        run: echo "${{ github.ref_name }}"
