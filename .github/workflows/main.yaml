@@ -56,3 +56,12 @@ jobs:
           
       - name: Print warning
         run: echo "::warning ::Something went wrong"
+        
+      - name: Conditional short-circuit
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "This event was a push"
+            exit 0
+          fi
+          
+          echo "this event was not a push"
