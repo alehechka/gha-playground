@@ -53,3 +53,6 @@ jobs:
         run: yarn start
         env:
           VARIABLE: 'hello, world'
+          
+      - name: Print warning
+        run: echo "::warning ::Something went wrong"
