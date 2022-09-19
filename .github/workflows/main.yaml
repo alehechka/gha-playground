@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - 'feature/*'
   pull_request:
   # - create
   # - delete
@@ -81,7 +80,7 @@ jobs:
         id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: http://example.com
+          # environment-url: http://example.com
           environment: ${{ steps.environment.outputs.name }}
 
       - name: Update deployment status (success)
