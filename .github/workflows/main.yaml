@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - 'feature/*'
   # - pull_request
   # - create
   # - delete
@@ -53,15 +54,32 @@ jobs:
         run: yarn start
         env:
           VARIABLE: 'hello, world'
-          
+
       - name: Print warning
         run: echo "::warning ::Something went wrong"
-        
+
       - name: Conditional short-circuit
         run: |
           if [ "${{ github.event_name }}" = "push" ]; then
             echo "This event was a push"
             exit 0
           fi
-          
+
           echo "this event was not a push"
+
+      - name: Create GitHub deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: http://example.com
+          environment: "${{ github.ref_name == 'main' ? 'production' : 'development' }}"
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment-url: ${{ steps.deployment.outputs.environment_url }}
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: 'success'
