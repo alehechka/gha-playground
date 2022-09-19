@@ -70,14 +70,11 @@ jobs:
       - name: Get Environment
         id: environment
         run: |
-          if [$REF == 'main']
-          then
+          if [ "${{ github.ref_name }}" = "main" ]; then
               echo "::set-output name=name::production"
           else
               echo "::set-output name=name::development"
           fi
-        env:
-          REF: ${{ github.ref_name }}
 
       - name: Create GitHub deployment
         uses: chrnorm/deployment-action@v2
