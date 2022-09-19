@@ -67,13 +67,25 @@ jobs:
 
           echo "this event was not a push"
 
+      - name: prerelease or not
+        id: environment
+        run: |
+          if [$REF == 'main']
+          then
+              echo "::set-output name=name::production"
+          else
+              echo "::set-output name=name::development"
+          fi
+        env:
+          REF: ${{ github.ref_name }}
+
       - name: Create GitHub deployment
         uses: chrnorm/deployment-action@v2
         id: deployment
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment-url: http://example.com
-          environment: "${{ github.ref_name == 'main' ? 'production' : 'development' }}"
+          environment: ${{ steps.environment.outputs.name }}
 
       - name: Update deployment status (success)
         if: success()
