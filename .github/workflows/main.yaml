@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - 'feature/*'
-  # - pull_request
+  pull_request:
   # - create
   # - delete
   workflow_dispatch:
@@ -67,7 +67,7 @@ jobs:
 
           echo "this event was not a push"
 
-      - name: prerelease or not
+      - name: Get Environment
         id: environment
         run: |
           if [$REF == 'main']
