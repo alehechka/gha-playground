@@ -6,7 +6,7 @@ on:
       - main
   pull_request:
   # - create
-  # - delete
+  delete:
   workflow_dispatch:
   # schedule:
   #   - cron: 50 * * * *
