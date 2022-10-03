@@ -45,6 +45,15 @@ jobs:
 
       - name: Env
         run: env | sort
+        env:
+          RANDOM_VAR: random_value
+
+      - name: envsubst
+        run: envsubst < .env
+        env:
+          HOSTNAME: example.com
+          NAMESPACE: gha-playground
+          SERVICE: service-api
 
       - name: Checkout
         uses: actions/checkout@v3
