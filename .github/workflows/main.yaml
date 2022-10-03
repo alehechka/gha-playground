@@ -48,15 +48,15 @@ jobs:
         env:
           RANDOM_VAR: random_value
 
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: envsubst
         run: envsubst < .env
         env:
           HOSTNAME: example.com
           NAMESPACE: gha-playground
           SERVICE: service-api
-
-      - name: Checkout
-        uses: actions/checkout@v3
 
       - name: Test JS env
         run: yarn start
