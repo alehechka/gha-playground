@@ -19,6 +19,9 @@ jobs:
       - name: Print Event Name
         run: echo "${{ github.event_name }}"
 
+      - name: Complex conditionals
+        run: echo "Value - ${{ github.ref_name == github.default_branch || github.ref_type == 'tag' }}"
+
       - name: Print Variables
         run: |
           echo "github.ref_name = ${{ github.ref_name }}"
