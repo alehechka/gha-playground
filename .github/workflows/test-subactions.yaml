@@ -1,0 +1,25 @@
+name: Test Sub Actions
+
+on:
+  - push
+
+jobs:
+  external-sub-actions:
+    runs-on: ubuntu-latest
+    name: Test External Sub Actions
+    steps:
+      - name: Run Sub Action One
+        uses: alehechka/gha-playground/sub-action-one@main
+        with:
+          variable: 'testing external reference call'
+
+  internal-sub-actions:
+    runs-on: ubuntu-latest
+    name: Test Internal Sub Actions
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Sub Action One
+        uses: ./sub-action-one
+        with:
+          variable: 'testing internal reference call'

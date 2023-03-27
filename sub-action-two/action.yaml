@@ -1,0 +1,13 @@
+name: Sub Action Two
+description: Example Sub Action
+
+inputs:
+  variable:
+    description: 'Variable to echo'
+
+runs:
+  using: composite
+  steps:
+    - name: Echo Variable
+      run: echo "Sub Action Two - ${{ inputs.variable }}"
+      shell: bash

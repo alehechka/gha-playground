@@ -1,0 +1,18 @@
+name: Sub Action One
+description: Example Sub Action
+
+inputs:
+  variable:
+    description: 'Variable to echo'
+
+runs:
+  using: composite
+  steps:
+    - name: Echo Variable
+      run: echo "Sub Action One - ${{ inputs.variable }}"
+      shell: bash
+
+    - name: Call Sub Action Two
+      uses: ${{ github.action_path }}/../sub-action-two
+      with:
+        variable: ${{ inputs.variable }}
