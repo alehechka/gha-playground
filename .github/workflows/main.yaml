@@ -112,3 +112,9 @@ jobs:
           environment-url: ${{ steps.deployment.outputs.environment_url }}
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           state: 'failure'
+          
+      - name: CLI Tool Versions
+        run: |
+          gh --version
+          jq --version
+          yq --version
