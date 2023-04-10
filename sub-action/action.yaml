@@ -1,4 +1,4 @@
-name: Sub Action One
+name: Sub Action
 description: Example Sub Action
 
 inputs:
@@ -12,7 +12,6 @@ runs:
       run: echo "Sub Action One - ${{ inputs.variable }}"
       shell: bash
 
-    - name: Call Sub Action Two
-      uses: ../sub-action-two
-      with:
-        variable: ${{ inputs.variable }}
+    - name: Echo action repository
+      run: echo "Action Repo - ${{ github.action_repository }}"
+      shell: bash
