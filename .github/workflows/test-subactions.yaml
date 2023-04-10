@@ -11,7 +11,7 @@ jobs:
       - name: Run Sub Action
         uses: alehechka/gha-playground/sub-action@main
         with:
-          variable: 'testing external reference call'
+          variable: 'testing external reference call - ${{ github.action_repository }}'
 
   internal-sub-actions:
     runs-on: ubuntu-latest
@@ -22,4 +22,4 @@ jobs:
       - name: Run Sub Action
         uses: ./sub-action
         with:
-          variable: 'testing internal reference call'
+          variable: 'testing internal reference call - ${{ github.action_repository }}'
