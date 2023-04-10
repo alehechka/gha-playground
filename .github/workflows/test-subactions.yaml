@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Test External Sub Actions
     steps:
-      - name: Run Sub Action One
-        uses: alehechka/gha-playground/sub-action-one@main
+      - name: Run Sub Action
+        uses: alehechka/gha-playground/sub-action@main
         with:
           variable: 'testing external reference call'
 
@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Sub Action One
-        uses: ./sub-action-one
+      - name: Run Sub Action
+        uses: ./sub-action
         with:
           variable: 'testing internal reference call'
