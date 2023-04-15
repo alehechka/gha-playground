@@ -9,7 +9,7 @@ on:
   # delete:
   workflow_dispatch:
   schedule:
-    - cron: 43 * * * *
+    - cron: '46 * * * *'
 
 jobs:
   playground:
