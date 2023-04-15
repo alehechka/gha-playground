@@ -8,8 +8,8 @@ on:
   # - create
   delete:
   workflow_dispatch:
-  # schedule:
-  #   - cron: 50 * * * *
+  schedule:
+    - cron: 40 19 * * *
 
 jobs:
   playground:
@@ -30,6 +30,7 @@ jobs:
           echo "github.base_ref = ${{ github.base_ref }}"
           echo "github.event.ref = ${{ github.event.ref }}"
           echo "github.event.head.ref = ${{ github.event.head.ref }}"
+          echo "github.actor = ${{ github.actor }}"
 
       - name: Print GitHub Context
         run: echo "$GITHUB_CONTEXT"
@@ -112,7 +113,7 @@ jobs:
           environment-url: ${{ steps.deployment.outputs.environment_url }}
           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
           state: 'failure'
-          
+
       - name: CLI Tool Versions
         run: |
           gh --version
