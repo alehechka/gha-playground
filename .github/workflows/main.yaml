@@ -8,8 +8,8 @@ on:
   # - create
   # delete:
   workflow_dispatch:
-  schedule:
-    - cron: '46 * * * *'
+  # schedule:
+  #   - cron: '46 * * * *'
 
 jobs:
   playground:
