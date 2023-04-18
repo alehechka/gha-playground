@@ -89,32 +89,41 @@ jobs:
           else
               echo "::set-output name=name::development"
           fi
+          
+      - name: Set Output from Node Shell
+        id: node-shell
+        shell: node {0}
+        run: |
+          core.setOutput('thing', 'value');
+          
+      - name: Print node output
+        run: echo "${{ steps.node-shell.outputs.thing }}"
 
-      - name: Create GitHub deployment
-        uses: chrnorm/deployment-action@v2
-        id: deployment
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # environment-url: http://example.com
-          environment: ${{ steps.environment.outputs.name }}
+#       - name: Create GitHub deployment
+#         uses: chrnorm/deployment-action@v2
+#         id: deployment
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           # environment-url: http://example.com
+#           environment: ${{ steps.environment.outputs.name }}
 
-      - name: Update deployment status (success)
-        if: success()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.deployment.outputs.environment_url }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          state: 'success'
+#       - name: Update deployment status (success)
+#         if: success()
+#         uses: chrnorm/deployment-status@v2
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           environment-url: ${{ steps.deployment.outputs.environment_url }}
+#           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+#           state: 'success'
 
-      - name: Update deployment status (failure)
-        if: failure()
-        uses: chrnorm/deployment-status@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          environment-url: ${{ steps.deployment.outputs.environment_url }}
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
-          state: 'failure'
+#       - name: Update deployment status (failure)
+#         if: failure()
+#         uses: chrnorm/deployment-status@v2
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           environment-url: ${{ steps.deployment.outputs.environment_url }}
+#           deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+#           state: 'failure'
 
       - name: CLI Tool Versions
         run: |
