@@ -130,3 +130,23 @@ jobs:
           gh --version
           jq --version
           yq --version
+
+      - name: Get Changelog Entry Successfully
+        id: changelog_reader
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_level: warn
+          path: CHANGELOG.md
+          version: v0.1.0
+
+      - name: Get Changelog Entry Unsuccessfully
+        id: changelog_reader_fail
+        uses: mindsers/changelog-reader-action@v2
+        with:
+          validation_level: warn
+          path: CHANGELOG.md
+          version: v0.0.0
+
+      - name: Unsuccessfully Version
+        if: always()
+        run: echo "Version - ${{ steps.changelog_reader_fail.outputs.version }}"

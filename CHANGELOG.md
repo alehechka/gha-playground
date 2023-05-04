@@ -19,3 +19,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Fixed
 
 ### Security
+
+## [v0.1.0]
+
+### Added
+
+- Changelog entry for testing
