@@ -138,6 +138,6 @@ jobs:
           path: CHANGELOG.md
           version: v0.0.0
 
-      - name: Unsuccessfully Version
+      - name: 'Unsuccessful Version: ${{ steps.changelog_reader_fail.outputs.version }}'
         if: always()
         run: echo "Version - ${{ steps.changelog_reader_fail.outputs.version }}"
