@@ -141,27 +141,3 @@ jobs:
       - name: "Unsuccessful Version: ${{ steps.changelog_reader_fail.outputs.version }}"
         if: always()
         run: echo "Version - ${{ steps.changelog_reader_fail.outputs.version }}"
-
----
-name: Playground 2
-
-on:
-  push:
-    branches:
-      - main
-    tags:
-      - "*"
-  pull_request:
-  # - create
-  # delete:
-  workflow_dispatch:
-  # schedule:
-  #   - cron: '46 * * * *'
-
-jobs:
-  playground:
-    runs-on: ubuntu-latest
-    name: Playground ${{ github.event_name }}
-    steps:
-      - name: Print Event Name
-        run: echo "${{ github.event_name }}"
