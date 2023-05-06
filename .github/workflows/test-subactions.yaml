@@ -14,6 +14,9 @@ jobs:
         with:
           variable: "testing external reference call - ${{ github.action_repository }}"
 
+      - name: Cat README
+        run: cat README.md
+
   internal-sub-actions:
     runs-on: ubuntu-latest
     name: Test Internal Sub Actions
@@ -24,6 +27,3 @@ jobs:
         uses: ./sub-action
         with:
           variable: "testing internal reference call - ${{ github.action_repository }}"
-
-      - name: Cat README
-        run: cat README.md
