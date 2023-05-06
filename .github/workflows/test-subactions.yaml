@@ -23,7 +23,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Update README contents
+        run: echo "new information just leaked" >> README.md
+
+      - name: Cat README
+        run: cat README.md
+
       - name: Run Sub Action
         uses: ./sub-action
         with:
           variable: "testing internal reference call - ${{ github.action_repository }}"
+
+      - name: Cat README
+        run: cat README.md
