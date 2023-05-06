@@ -1,7 +1,8 @@
 name: Test Sub Actions
 
 on:
-  - workflow_call
+  workflow_call:
+  push:
 
 jobs:
   external-sub-actions:
@@ -23,3 +24,6 @@ jobs:
         uses: ./sub-action
         with:
           variable: "testing internal reference call - ${{ github.action_repository }}"
+
+      - name: Cat README
+        run: cat README.md

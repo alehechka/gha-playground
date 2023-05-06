@@ -3,7 +3,7 @@ description: Example Sub Action
 
 inputs:
   variable:
-    description: 'Variable to echo'
+    description: "Variable to echo"
 
 runs:
   using: composite
@@ -15,3 +15,6 @@ runs:
     - name: Echo action repository
       run: echo "Action Repo - ${{ github.action_repository }}"
       shell: bash
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
