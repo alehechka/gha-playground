@@ -141,11 +141,3 @@ jobs:
       - name: 'Unsuccessful Version: ${{ steps.changelog_reader_fail.outputs.version }}'
         if: always()
         run: echo "Version - ${{ steps.changelog_reader_fail.outputs.version }}"
-
-      - name: Create Tag
-        uses: mathieudutour/github-tag-action@v6.1
-        with:
-          github_token: ${{ secrets.GHA_ACCESS_TOKEN }}
-          custom_tag: v0.4.0
-          release_branches: ${{ github.event.repository.default_branch }}
-          tag_prefix: ''
