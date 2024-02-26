@@ -4,6 +4,7 @@ description: Example Sub Action
 inputs:
   variable:
     description: "Variable to echo"
+    default: ${{ github.ref_name }}
 
 runs:
   using: composite
